@@ -38,7 +38,17 @@ class Login extends Component {
     })
       .then((response) => {
         this.setState({ loading: false });
-        if (response.data.token) {
+        if (response.data.hasE) {
+          const errorsJSON = JSON.parse(response.request.responseText);
+          const errors = errorsJSON.e;
+          let errorsList = '';
+          for (let i = 0; i < errors.length; i++) {
+            errorsList += '<li>' + errors[i].msg + '</li>';
+          }
+          Alert.alert(errorsList)
+
+        } else if (response.data.token) {
+        
           const token = response.data.token;
           AsyncStorage.setItem('@token', 'token')
           this.props.navigation.navigate('Splash')
