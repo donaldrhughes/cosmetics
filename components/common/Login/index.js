@@ -18,26 +18,27 @@ class Login extends Component {
     super(props);
     this.state = {
       apiData: [],
+      email: null,
+      password: null,
       loading: false
-      
+
     };
-    this.email = null,
-      this.password = null,
-      this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
-  handleSubmit = () => {
-
+  handleSubmit = (event) => {
+    event.preventDefault();
     //add axios here to auth/login
     this.setState({ loading: true })
     axios.post("http://localhost:3001/auth/login", {
-      email: this.email,
-      password: this.password
+      email: this.state.email,
+      password: this.state.password
 
     })
       .then((response) => {
-        this.setState({ loading: false });
+        this.setState({ loading: false, email: null, password: null });
         if (response.data.hasE) {
           const errorsJSON = JSON.parse(response.request.responseText);
           const errors = errorsJSON.e;
@@ -46,16 +47,9 @@ class Login extends Component {
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-
         } else if (response.data.token) {
-        
           const token = response.data.token;
           AsyncStorage.setItem('@token', 'token')
-          this.email = null;
-          this.password = null;
-          this.setState({
-            loading: true
-          })
           this.props.navigation.navigate('Splash')
         } else {
           let message = response.data.message;
@@ -86,8 +80,8 @@ class Login extends Component {
                     type="email"
                     className="loginText"
                     placeholder="Username"
-                    value={this.email}
-                    onChangeText={(text) => (this.email = text)} />
+                    value={this.state.email}
+                    onChangeText={(text) => (this.state.email = text)} />
                 </Item>
                 <Item rounded last style={styles.input}>
                   <Input
@@ -95,17 +89,15 @@ class Login extends Component {
                     className="passwordText"
                     placeholder="Password"
                     secureTextEntry={true}
-                    value={this.password}
-                    onChangeText={(text) => (this.password = text)} />
+                    value={this.state.password}
+                    onChangeText={(text2) => (this.state.password = text2)} />
                 </Item>
                 <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
                   <Text style={styles.btnText}>Submit</Text>
                 </Button>
               </Form>
             </Content>
-
           </CardItem >
-
           <CardItem style={styles.card}>
             <Content>
               <Text style={styles.card}>Sign Up</Text>
@@ -115,14 +107,10 @@ class Login extends Component {
             <Content>
               <Text style={styles.card}>Forgot Password</Text></Content>
           </CardItem>
-
-
         </Card>
-
       </Container>
     )
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -177,7 +165,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 
-
 });
+
 
 export default withNavigation(Login)
