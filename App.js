@@ -31,6 +31,14 @@ class SplashScreen extends Component {
   }
 }
 
+//Styles
+const styles = StyleSheet.create({
+  body: {
+    backgroundColor: Colors.white,
+  }
+
+});
+
 //Config
 //Remove YellowBox warnings from Front-End
 YellowBox.ignoreWarnings([
@@ -50,16 +58,9 @@ const RootStack = createStackNavigator(
   }
 );
 
-//Main Styles
-const styles = StyleSheet.create({
-  body: {
-    backgroundColor: Colors.white,
-  }
-
-});
-
 //Main App Container 
 const AppContainer = createAppContainer(RootStack);
+
 
 //Primary App Class
 export default class App extends Component {
