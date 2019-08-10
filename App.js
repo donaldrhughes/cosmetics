@@ -1,76 +1,68 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { StyleSheet, View, StatusBar, YellowBox, Image } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Container, Header, Left, Body, Right, Content, Footer, Text, Button, Icon, Title } from 'native-base';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//Components
+import Login from './components/common/Login';
 
-const App = () => {
-  return (
-    <Fragment>
+//Remove YellowBox warnings from Front-End
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
+  'Module RCTImageLoader requires',
+]);
+
+
+class HomeScreen extends Component {
+  static navigationOptions = {
+    header: null
+  }
+  render() {
+    return (
+      <Container>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+      
+        <Header>
+          <Body>
+            <Image source={require('./images/JA-Logo-sml.png')} />
+          </Body>
+        </Header>
+
+        <Login />
+        <Footer>
+          <Content>
+            <Text style={styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
+                  </Text>
+          </Content>
+          <Content><Text>Phone: 1.714.423.5208 - Call Us Today!</Text></Content>
+        </Footer>
+      </Container>
+    )}
+}
+
+
+class DetailsScreen extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
+  }
+}
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -111,4 +103,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+const AppContainer = createAppContainer(RootStack);
+
+
+export default class App extends Component {
+  render() {
+    return <AppContainer />;
+  }
+}
+
