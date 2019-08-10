@@ -3,11 +3,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem, Spinner } from 'native-base';
+import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
+//Components
+import Loading from '../Loading';
 
 //Login Class
 //=======================
@@ -59,7 +61,7 @@ class Login extends Component {
     return (
       <Container>
         <Header><Text>Login</Text></Header>
-        
+        <Loading modalVisible={this.state.loading} />
         <Card>
           <CardItem style={styles.card}>
             <Content>

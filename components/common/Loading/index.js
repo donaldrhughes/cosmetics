@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Modal } from 'react-native';
-import { Container, Content, Button, Text, Spinner } from 'native-base';
+import { View, Modal, Text, TouchableHighlight, Alert } from 'react-native';
+import { Container, Content, Button, Spinner } from 'native-base';
 
-export default class index extends Component {
+export default class Loading extends Component {
     state = {
         modalVisible: false,
       };
@@ -13,7 +13,7 @@ export default class index extends Component {
 
     render() {
         return (
-            <Container>
+            
                 <View style={{ marginTop: 22 }}>
                     <Modal
                         animationType="slide"
@@ -43,7 +43,7 @@ export default class index extends Component {
                         <Text>Show Modal</Text>
                     </TouchableHighlight>
                 </View>
-            </Container>
+           
         );
     }
 }
