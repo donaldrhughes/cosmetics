@@ -1,9 +1,9 @@
 //Login Component
 //========================
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
+import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem, Spinner } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
@@ -17,7 +17,7 @@ class Login extends Component {
     this.state = {
       apiData: [],
       loading: false
-
+      
     };
     this.email = null,
       this.password = null,
@@ -31,7 +31,7 @@ class Login extends Component {
     this.setState({ loading: true })
     axios.post("http://localhost:3001/auth/login", {
       email: this.email,
-      password: this.password,
+      password: this.password
 
     })
       .then((response) => {
@@ -39,11 +39,10 @@ class Login extends Component {
         if (response.data.token) {
           const token = response.data.token;
           AsyncStorage.setItem('@token', 'token')
-          // localStorage.setItem("token", token)
           this.props.navigation.navigate('Splash')
         } else {
           let message = response.data.message;
-          alert(message);
+          Alert.alert(message);
         }
         // console.log(token)
 
@@ -60,7 +59,7 @@ class Login extends Component {
     return (
       <Container>
         <Header><Text>Login</Text></Header>
-
+        
         <Card>
           <CardItem style={styles.card}>
             <Content>
