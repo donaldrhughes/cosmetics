@@ -89,8 +89,9 @@ class Login extends Component {
                     type="password"
                     className="passwordText"
                     placeholder="Password"
+                    secureTextEntry={true}
                     value={this.password}
-                    onChangeText={(text) => (this.password = text)} />
+                    onChangeText={(text2) => (this.password = text2)} />
                 </Item>
                 <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
                   <Text style={styles.btnText}>Submit</Text>
