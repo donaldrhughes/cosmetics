@@ -51,6 +51,11 @@ class Login extends Component {
         
           const token = response.data.token;
           AsyncStorage.setItem('@token', 'token')
+          this.email = null;
+          this.password = null;
+          this.setState({
+            loading: true
+          })
           this.props.navigation.navigate('Splash')
         } else {
           let message = response.data.message;
@@ -91,7 +96,7 @@ class Login extends Component {
                     placeholder="Password"
                     secureTextEntry={true}
                     value={this.password}
-                    onChangeText={(text2) => (this.password = text2)} />
+                    onChangeText={(text) => (this.password = text)} />
                 </Item>
                 <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
                   <Text style={styles.btnText}>Submit</Text>
