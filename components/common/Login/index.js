@@ -4,12 +4,14 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
+import { withNavigation } from 'react-navigation';
+import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
 
 //Login Class
 //=======================
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,14 +24,6 @@ export default class Login extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-
-  // handleChange = event => {
-  //   this.setState({
-  //     [event.target.id]: event.target.value
-  //   });
-
-  // }
 
   handleSubmit = () => {
 
@@ -44,8 +38,9 @@ export default class Login extends Component {
         this.setState({ loading: false });
         if (response.data.token) {
           const token = response.data.token;
+          AsyncStorage.setItem('@token', 'token')
           // localStorage.setItem("token", token)
-          // this.props.history.push('/splash');
+          this.props.navigation.navigate('Splash')
         } else {
           let message = response.data.message;
           alert(message);
@@ -167,3 +162,5 @@ const styles = StyleSheet.create({
 
 
 });
+
+export default withNavigation(Login)
