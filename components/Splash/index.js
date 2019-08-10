@@ -1,9 +1,10 @@
 //Splash Screen
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Container, Button, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
+import { withNavigation } from 'react-navigation';
 
-
-export default class Splash extends Component {
+class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,9 +13,14 @@ export default class Splash extends Component {
 
   render() {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Splash</Text>
-      </View>
+       
+        
+        
+        <Button title="Back" onPress={() => { this.props.navigation.goBack() }} />
+ 
+      
     );
   }
 }
+
+export default withNavigation(Splash)

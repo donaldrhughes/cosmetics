@@ -2,10 +2,10 @@
 //===========================================
 //Dependencies
 import React, { Component } from 'react';
-import { StyleSheet, YellowBox } from 'react-native';
+import { StyleSheet, YellowBox, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-
+import { Container, Button, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
 
 //Components
 import Home from './components/Home';
@@ -18,13 +18,25 @@ class HomeScreen extends Component {
   }
   render() {
     return (
+      <Container>
       <Home />
+      <Button
+          title="Go to Splash"
+          onPress={() => this.props.navigation.navigate('Splash')}
+        />
+        </Container>
     )}
 }
 
 
 class SplashScreen extends Component {
+  static navigationOptions = {
+    title: 'Splash',
+    
+    headerRight: <View />
+  }
   render() {
+    
     return (
       <Splash />
     );
@@ -55,7 +67,11 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
+    defaultNavigationOptions:{
+      backgroundColor: Colors.blue
+    }
   }
+  
 );
 
 //Main App Container 
