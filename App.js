@@ -5,11 +5,12 @@ import React, { Component } from 'react';
 import { StyleSheet, YellowBox, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Container, Button, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
+// import { Container, Button, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
 
 //Components
 import Home from './components/Home';
 import Splash from './components/Splash';
+import Registration from './components/Registration';
 
 
 class HomeScreen extends Component {
@@ -18,13 +19,9 @@ class HomeScreen extends Component {
   }
   render() {
     return (
-      <Container>
+      
       <Home />
-      <Button
-          title="Go to Splash"
-          onPress={() => this.props.navigation.navigate('Splash')}
-        />
-        </Container>
+      
     )}
 }
 
@@ -39,6 +36,20 @@ class SplashScreen extends Component {
     
     return (
       <Splash />
+    );
+  }
+}
+
+class RegisterScreen extends Component {
+  static navigationOptions = {
+    title: 'Registration',
+    
+    headerRight: <View />
+  }
+  render() {
+    
+    return (
+      <Registration />
     );
   }
 }
@@ -63,7 +74,8 @@ YellowBox.ignoreWarnings([
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Splash: SplashScreen
+    Splash: SplashScreen,
+    Registration: RegisterScreen
   },
   {
     initialRouteName: 'Home',

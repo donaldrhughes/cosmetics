@@ -5,10 +5,10 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
 
 //Components
-import Login from '../common/Login';
+import Register from '../common/Register';
 
 
-export default class Home extends Component {
+export default class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ export default class Home extends Component {
             </Body>
           </Header>
   
-          <Login />
+          <Register />
           <Footer>
             <Content>
               <Text style={styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
