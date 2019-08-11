@@ -1,6 +1,6 @@
 //Home Screen
 import React, { Component } from 'react';
-import { StyleSheet, StatusBar, Image } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
 
@@ -20,12 +20,6 @@ export default class Registration extends Component {
     return (
         <Container>
         <StatusBar barStyle="dark-content" />
-        
-          <Header>
-            <Body>
-              <Image source={require('../../images/JA-Logo-sml.png')} />
-            </Body>
-          </Header>
   
           <Register />
           <Footer>

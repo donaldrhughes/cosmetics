@@ -52,7 +52,7 @@ componentDidMount(){
 
     })
       .then((response) => {
-        this.setState({loading: false});
+        this.setState({loading: false, email: null, password: null, verifyPassword: null, dob: null, username: null });
         if (response.data.hasE) {
           const errorsJSON = JSON.parse(response.request.responseText);
           const errors = errorsJSON.e;
@@ -62,14 +62,15 @@ componentDidMount(){
           }
           Alert.alert(errorsList)
           
-        } else if (response.data.token) {
-          let message = 'User has been created';
-          Alert.alert(message);
-          this.props.navigation.navigate('Home');
+        // } else if (response.data.token) {
+        //   let message = 'User has been created';
+        //   Alert.alert(message);
+        //   this.props.navigation.navigate('Home')
         } else {
           
           let message = response.data.message;
           Alert.alert(message);
+          this.props.navigation.navigate('Home')
         }
 
       })
@@ -84,7 +85,7 @@ componentDidMount(){
 
     return (
       <Container>
-        <Header><Text>Register</Text></Header>
+        <Header><Text>Sign Up Here</Text></Header>
         <Card>
           <CardItem style={styles.card}>
             <Content>
@@ -121,7 +122,7 @@ componentDidMount(){
                     placeholder="Verify Password"
                     secureTextEntry={true}
                     value={this.state.verifyPassword}
-                    onChangeText={(text3) => (this.state.verifyPassword = text23)} />
+                    onChangeText={(text3) => (this.state.verifyPassword = text3)} />
                 </Item>
                 <Item rounded style={styles.input}>
                   <Input
@@ -137,15 +138,6 @@ componentDidMount(){
               </Form>
             </Content>
           </CardItem >
-          {/* <CardItem style={styles.card}>
-            <Content>
-              <Text style={styles.card}>Sign Up</Text>
-            </Content>
-          </CardItem>
-          <CardItem style={styles.card}>
-            <Content>
-              <Text style={styles.card}>Forgot Password</Text></Content>
-          </CardItem> */}
         </Card>
       </Container>
     )

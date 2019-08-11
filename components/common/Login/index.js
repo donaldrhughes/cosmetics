@@ -80,7 +80,7 @@ componentDidMount(){
     
     return (
       <Container>
-        <Header><Text>Login</Text></Header>
+        <Header><Text>James Albert Cosmetics</Text></Header>
         <Card>
           <CardItem style={styles.card}>
             <Content>
