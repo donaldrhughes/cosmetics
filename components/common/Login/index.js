@@ -38,9 +38,13 @@ componentDidMount(){
 
   handleSubmit = (event) => {
     event.preventDefault();
+    // const hostString = "https://protected-harbor-72820.herokuapp.com/" || "http://localhost" ;
+    // const portString = "" || "3001";
+
     //add axios here to auth/login
     this.setState({ loading: true })
-    axios.post("http://localhost:3001/auth/login", {
+    // axios.post(hostString + ":" + portString + "/auth/login", {
+      axios.post("https://protected-harbor-72820.herokuapp.com/auth/login", {
       email: this.state.email,
       password: this.state.password
 

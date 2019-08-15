@@ -16,6 +16,7 @@ import Registration from './components/Registration';
 class HomeScreen extends Component {
   static navigationOptions = {
     header: null
+    
   }
   render() {
     return (
