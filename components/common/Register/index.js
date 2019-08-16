@@ -155,33 +155,11 @@ const styles = StyleSheet.create({
   card: {
     flex: 0,
     backgroundColor: Colors.dark,
-    textAlignVertical: "center",
-    textAlign: "center",
     color: Colors.light
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
   },
   input: {
     margin: 6,
     backgroundColor: Colors.light,
-    justifyContent: "center",
-    alignItems: "center"
   },
   btn: {
     marginLeft: 64,
@@ -189,16 +167,9 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
   btnText: {
-    textAlignVertical: "center",
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
     marginLeft: 60
-  },
-  center: {
-    textAlignVertical: "center",
-    textAlign: "center"
   }
+
 
 });
 

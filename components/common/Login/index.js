@@ -20,21 +20,21 @@ class Login extends Component {
       email: null,
       password: null,
       loading: true
-      
+
 
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-componentDidMount(){
-  this.setState({
-    loading: false,
-    email: null,
-    password: null
-    
-  })
-}
+  componentDidMount() {
+    this.setState({
+      loading: false,
+      email: null,
+      password: null
+
+    })
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -44,13 +44,13 @@ componentDidMount(){
     //add axios here to auth/login
     this.setState({ loading: true })
     // axios.post(hostString + ":" + portString + "/auth/login", {
-      axios.post("https://protected-harbor-72820.herokuapp.com/auth/login", {
+    axios.post("https://protected-harbor-72820.herokuapp.com/auth/login", {
       email: this.state.email,
       password: this.state.password
 
     })
       .then((response) => {
-        this.setState({loading: false, email: null, password: null });
+        this.setState({ loading: false, email: null, password: null });
         if (response.data.hasE) {
           const errorsJSON = JSON.parse(response.request.responseText);
           const errors = errorsJSON.e;
@@ -59,14 +59,14 @@ componentDidMount(){
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-          
+
         } else if (response.data.token) {
           const token = response.data.token;
           // console.error(token)
           AsyncStorage.setItem('@token', 'token');
           this.props.navigation.navigate('Splash');
         } else {
-          
+
           let message = response.data.message;
           Alert.alert(message);
         }
@@ -81,7 +81,7 @@ componentDidMount(){
 
   render() {
     if (this.state.loading) return <Loading />;
-    
+
     return (
       <Container>
         <Header><Text>James Albert Cosmetics</Text></Header>
@@ -110,20 +110,13 @@ componentDidMount(){
                   <Text style={styles.btnText}>Submit</Text>
                 </Button>
               </Form>
+              <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Registration'))}>
+                <Text style={styles.btnText}>Sign Up</Text>
+              </Button>
+              <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
+                <Text style={styles.btnForgotText}>Forgot Password</Text>
+              </Button>
             </Content>
-          </CardItem >
-          <CardItem style={styles.card}>
-            <Content>
-            <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Registration'))}>
-                  <Text style={styles.btnText}>Sign Up</Text>
-            </Button>
-            </Content>
-          </CardItem>
-          <CardItem style={styles.card}>
-            <Content>
-            <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
-                  <Text style={styles.btnForgot}>Forgot Password</Text>
-            </Button></Content>
           </CardItem>
         </Card>
       </Container>
@@ -132,39 +125,15 @@ componentDidMount(){
 }
 
 const styles = StyleSheet.create({
-  body: {
-    backgroundColor: Colors.white
-  },
+
   card: {
     flex: 0,
     backgroundColor: Colors.dark,
-    textAlignVertical: "center",
-    textAlign: "center",
     color: Colors.light
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
   },
   input: {
     margin: 6,
-    backgroundColor: Colors.light,
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: Colors.light
   },
   btn: {
     marginLeft: 64,
@@ -172,22 +141,10 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
   btnText: {
-    textAlignVertical: "center",
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
     marginLeft: 60
   },
-  btnForgot: {
-    textAlignVertical: "center",
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
+  btnForgotText: {
     marginLeft: 35
-  },
-  center: {
-    textAlignVertical: "center",
-    textAlign: "center"
   }
 
 });

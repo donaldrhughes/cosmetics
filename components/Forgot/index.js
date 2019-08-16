@@ -84,7 +84,7 @@ componentDidMount(){
                   <Input
                     type="email"
                     className="loginText"
-                    placeholder="Email"
+                    placeholder="Enter Your Email Address"
                     value={this.state.email}
                     onChangeText={(text) => (this.state.email = text)} />
                 </Item>
@@ -114,11 +114,16 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
     btnText: {
-      textAlignVertical: "center",
-      textAlign: "center",
-      alignItems: "center",
-      justifyContent: "center",
       marginLeft: 60
+    },
+    card: {
+      flex: 0,
+      backgroundColor: Colors.dark,
+      color: Colors.light
+    },
+    input: {
+      margin: 6,
+      backgroundColor: Colors.light
     },
   footer: {
     color: Colors.dark,
