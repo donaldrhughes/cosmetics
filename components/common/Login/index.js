@@ -121,7 +121,9 @@ componentDidMount(){
           </CardItem>
           <CardItem style={styles.card}>
             <Content>
-              <Text style={styles.card}>Forgot Password</Text></Content>
+            <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
+                  <Text style={styles.btnForgot}>Forgot Password</Text>
+            </Button></Content>
           </CardItem>
         </Card>
       </Container>
@@ -175,6 +177,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginLeft: 60
+  },
+  btnForgot: {
+    textAlignVertical: "center",
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 35
   },
   center: {
     textAlignVertical: "center",

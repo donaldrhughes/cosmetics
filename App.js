@@ -5,12 +5,12 @@ import React, { Component } from 'react';
 import { StyleSheet, YellowBox, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-// import { Container, Button, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
 
 //Components
 import Home from './components/Home';
 import Splash from './components/Splash';
 import Registration from './components/Registration';
+import Forgot from './components/Forgot';
 
 
 class HomeScreen extends Component {
@@ -55,6 +55,19 @@ class RegisterScreen extends Component {
   }
 }
 
+class ForgotScreen extends Component {
+  static navigationOptions = {
+    title: 'Forgot Password',
+    
+    headerRight: <View />
+  }
+  render() {
+    
+    return (
+      <Forgot />
+    );
+  }
+}
 //Styles
 const styles = StyleSheet.create({
   body: {
@@ -76,7 +89,8 @@ const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
     Splash: SplashScreen,
-    Registration: RegisterScreen
+    Registration: RegisterScreen,
+    Forgot: ForgotScreen
   },
   {
     initialRouteName: 'Home',
