@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Splash from './components/Splash';
 import Registration from './components/Registration';
 import Forgot from './components/Forgot';
+// import Reset from './components/Reset';
 
 
 class HomeScreen extends Component {
@@ -68,6 +69,21 @@ class ForgotScreen extends Component {
     );
   }
 }
+
+class ResetScreen extends Component {
+  static navigationOptions = {
+    title: 'Reset Password',
+    
+    headerRight: <View />
+  }
+  render() {
+    
+    return (
+      // <Reset />
+      <div></div>
+    );
+  }
+}
 //Styles
 const styles = StyleSheet.create({
   body: {
@@ -90,7 +106,8 @@ const RootStack = createStackNavigator(
     Home: HomeScreen,
     Splash: SplashScreen,
     Registration: RegisterScreen,
-    Forgot: ForgotScreen
+    Forgot: ForgotScreen,
+    Reset: ResetScreen
   },
   {
     initialRouteName: 'Home',

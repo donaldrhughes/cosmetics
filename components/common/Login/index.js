@@ -10,6 +10,7 @@ import axios from 'axios';
 
 //Components
 import Loading from '../Loading';
+import { black } from 'ansi-colors';
 
 //Login Class
 //=======================
@@ -38,13 +39,12 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // const hostString = "https://protected-harbor-72820.herokuapp.com/" || "http://localhost" ;
-    // const portString = "" || "3001";
-
     //add axios here to auth/login
     this.setState({ loading: true })
-    // axios.post(hostString + ":" + portString + "/auth/login", {
-    axios.post("https://protected-harbor-72820.herokuapp.com/auth/login", {
+    // const localString = "http://localhost:3001/auth/login";
+    // axios.post(localString, {
+    const hostString = "https://protected-harbor-72820.herokuapp.com/auth/login";
+    axios.post(hostString, {
       email: this.state.email,
       password: this.state.password
 
@@ -100,7 +100,7 @@ class Login extends Component {
                 <Item rounded last style={styles.input}>
                   <Input
                     type="password"
-                    className="passwordText"
+                    className="loginText"
                     placeholder="Password"
                     secureTextEntry={true}
                     value={this.state.password}
@@ -145,6 +145,9 @@ const styles = StyleSheet.create({
   },
   btnForgotText: {
     marginLeft: 35
+  },
+  loginText: {
+    color: Colors.dark
   }
 
 });
