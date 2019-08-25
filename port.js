@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Container, Content, Text } from 'native-base';
+import { uriBase } from './uri';
 
 class Port extends Component {
     constructor(props) {
@@ -14,9 +15,6 @@ class Port extends Component {
     }
 
     componentDidMount() {
-        const uriBase = process.env.NODE_ENV === 'development'
-            ? 'http://localhost:3001/'
-            : 'https://protected-harbor-72820.herokuapp.com/'
         axios.get(uriBase + 'api/server/port')
             .then((result) => {
 
@@ -37,7 +35,7 @@ class Port extends Component {
 
                     // <Text>PORT:{this.state.port}</Text>
                     <Text>url:{this.state.url}</Text>
-
+                    // <Text>{uriBase}</Text>
                     // <Text>url:{process.env.NODE_ENV}</Text>
             
         );
