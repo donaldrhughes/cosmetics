@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { StyleSheet, StatusBar, Image } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Header, Left, Body, Right, Content, Footer, Text } from 'native-base';
+import Port from '../../port'
 
 //Components
 import Login from '../common/Login';
@@ -25,6 +26,7 @@ export default class Home extends Component {
             <Image source={require('../../images/JA-Logo-sml.png')} />
           </Body>
         </Header>
+        <Port />
         <Login />
         <Footer>
           <Content>
