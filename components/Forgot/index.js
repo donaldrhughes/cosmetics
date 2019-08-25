@@ -1,14 +1,16 @@
-//Home Screen
+//Forgot Screen
 import React, { Component } from 'react';
 import { StyleSheet, StatusBar } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Container, Header, Left, Body, Right, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
+import { Container, Header, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
+import { uriBase } from '../../uri';
 import axios from 'axios';
 
 
 //Components
 import Loading from '../common/Loading/';
+
 
 class Forgot extends Component {
   constructor(props) {
@@ -32,13 +34,9 @@ componentDidMount(){
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // hostString = "http://localhost";
-    // portString = "3001";
-    
-    //add axios here to auth/login
     this.setState({ loading: true })
-    // axios.post(hostString + ":" + portString + "/auth/register", {
-      axios.post("https://protected-harbor-72820.herokuapp.com/auth/forgot_password", {
+
+      axios.post(uriBase + 'auth/forgot_password', {
     email: this.state.email
       
 
@@ -53,10 +51,7 @@ componentDidMount(){
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-          
-
         } else {
-          
           let message = response.data.message;
           Alert.alert(message);
           this.props.navigation.navigate('Home')

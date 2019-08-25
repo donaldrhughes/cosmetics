@@ -6,11 +6,13 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
+import { uriBase } from '../../../uri';
 import axios from 'axios';
+
 
 //Components
 import Loading from '../Loading';
-import { black } from 'ansi-colors';
+
 
 //Login Class
 //=======================
@@ -39,12 +41,8 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //add axios here to auth/login
     this.setState({ loading: true })
-    // const localString = "http://localhost:3001/auth/login";
-    // axios.post(localString, {
-    const hostString = "https://protected-harbor-72820.herokuapp.com/auth/login";
-    axios.post(hostString, {
+    axios.post(uriBase + 'auth/login', {
       email: this.state.email,
       password: this.state.password
 

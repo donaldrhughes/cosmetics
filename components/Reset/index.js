@@ -4,11 +4,13 @@ import { StyleSheet, StatusBar } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Header, Left, Body, Right, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
+import { uriBase } from '../../../uri';
 import axios from 'axios';
 
 
 //Components
 import Loading from '../common/Loading';
+import { uriBase } from '../../uri';
 
 class Reset extends Component {
   constructor(props) {
@@ -34,13 +36,8 @@ class Reset extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    //add axios here to auth/login
     this.setState({ loading: true })
-    // const localString = "http://localhost:3001/auth/reset_password";
-    // axios.post(localString, {
-    const hostString = "https://protected-harbor-72820.herokuapp.com/auth/reset_password";
-    axios.post(hostString, {
+    axios.post(uriBase + 'auth/reset_password', {
       password: this.state.password,
       verifyPassword: this.state.verifyPassword,
 
@@ -83,7 +80,6 @@ class Reset extends Component {
           <CardItem style={styles.card}>
             <Content>
               <Form>
-                
                   <Item rounded style={styles.input}>
                     <Input
                       type="password"
@@ -105,11 +101,11 @@ class Reset extends Component {
                   <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
                     <Text style={styles.btnText}>Submit</Text>
                   </Button>
-              
               </Form>
             </Content>
           </CardItem>
         </Card>
+        
         <Footer>
           <Content>
             <Text style={styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212

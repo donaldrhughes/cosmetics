@@ -1,16 +1,17 @@
-//Login Component
+//Register Component
 //========================
 import React, { Component } from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
+import { uriBase } from '../../../uri';
 import axios from 'axios';
 
 //Components
 import Loading from '../Loading';
 
-//Login Class
+//Register Class
 //=======================
 class Register extends Component {
   constructor(props) {
@@ -41,13 +42,8 @@ componentDidMount(){
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // hostString = "http://localhost";
-    // portString = "3001";
-    
-    //add axios here to auth/login
     this.setState({ loading: true })
-    // axios.post(hostString + ":" + portString + "/auth/register", {
-      axios.post("https://protected-harbor-72820.herokuapp.com/auth/register", {
+      axios.post(uriBase + 'auth/register', {
     email: this.state.email,
       username: this.state.username,
       password: this.state.password,
