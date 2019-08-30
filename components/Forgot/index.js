@@ -18,9 +18,7 @@ class Forgot extends Component {
     this.state = {
       email: null,
       loading: true
-
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,18 +26,14 @@ componentDidMount(){
   this.setState({
     loading: false,
     email: null
-    
   })
 }
 
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ loading: true })
-
       axios.post(uriBase + 'auth/forgot_password', {
     email: this.state.email
-      
-
     })
       .then((response) => {
         this.setState({loading: false, email: null });
@@ -56,11 +50,9 @@ componentDidMount(){
           Alert.alert(message);
           this.props.navigation.navigate('Home')
         }
-
       })
       .catch(function (error) {
         console.log(error);
-
       })
   }
 

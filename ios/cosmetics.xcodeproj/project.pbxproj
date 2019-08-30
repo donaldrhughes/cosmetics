@@ -20,6 +20,8 @@
 		83EE646B1C0E99E95228055E /* libPods-cosmetics-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 307C1A63E61F77F48F971FEB /* libPods-cosmetics-tvOSTests.a */; };
 		ABF88C0F93EBE2DD4752AFD5 /* libPods-cosmeticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D4B62202B8458AF511AAF5 /* libPods-cosmeticsTests.a */; };
 		B25B388F29CDD1C6D1F0B021 /* libPods-cosmetics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B1F7E43A805F94EE8B52FB /* libPods-cosmetics.a */; };
+		D76782D52318424100B20887 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76782D42318424100B20887 /* Counter.swift */; };
+		D76782D72318446600B20887 /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = D76782D62318446600B20887 /* Counter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,9 @@
 		BC37DCD2BD37852D55B3CD12 /* Pods-cosmetics-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cosmetics-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-cosmetics-tvOSTests/Pods-cosmetics-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2658307EC5AF79E21098387 /* Pods-cosmeticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cosmeticsTests.release.xcconfig"; path = "Target Support Files/Pods-cosmeticsTests/Pods-cosmeticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D20C70C49DBCF197795F3199 /* Pods-cosmeticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cosmeticsTests.debug.xcconfig"; path = "Target Support Files/Pods-cosmeticsTests/Pods-cosmeticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D76782D32318424000B20887 /* cosmetics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cosmetics-Bridging-Header.h"; sourceTree = "<group>"; };
+		D76782D42318424100B20887 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		D76782D62318446600B20887 /* Counter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Counter.m; sourceTree = "<group>"; };
 		D83B97B2750327897E56A50C /* Pods-cosmetics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cosmetics.release.xcconfig"; path = "Target Support Files/Pods-cosmetics/Pods-cosmetics.release.xcconfig"; sourceTree = "<group>"; };
 		DADA8F00FBB139D5BC891B9C /* Pods-cosmetics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cosmetics.debug.xcconfig"; path = "Target Support Files/Pods-cosmetics/Pods-cosmetics.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -174,12 +179,15 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				D76782D42318424100B20887 /* Counter.swift */,
+				D76782D62318446600B20887 /* Counter.m */,
 				13B07FAE1A68108700A75B9A /* cosmetics */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* cosmeticsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				609E46D6921AA22158D778FA /* Pods */,
+				D76782D32318424000B20887 /* cosmetics-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 3CFX5HZHNW;
+						LastSwiftMigration = 1030;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -583,8 +592,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D76782D72318446600B20887 /* Counter.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				D76782D52318424100B20887 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D20C70C49DBCF197795F3199 /* Pods-cosmeticsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 3CFX5HZHNW;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -661,6 +673,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2658307EC5AF79E21098387 /* Pods-cosmeticsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 3CFX5HZHNW;
@@ -683,6 +696,7 @@
 			baseConfigurationReference = DADA8F00FBB139D5BC891B9C /* Pods-cosmetics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 3CFX5HZHNW;
@@ -698,6 +712,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = cosmetics;
+				SWIFT_OBJC_BRIDGING_HEADER = "cosmetics-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -707,6 +724,7 @@
 			baseConfigurationReference = D83B97B2750327897E56A50C /* Pods-cosmetics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 3CFX5HZHNW;
@@ -722,6 +740,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = cosmetics;
+				SWIFT_OBJC_BRIDGING_HEADER = "cosmetics-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

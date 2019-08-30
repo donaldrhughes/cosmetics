@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Container, Content, Text } from 'native-base';
+import { Text } from 'native-base';
 import { uriBase } from './uri';
 
 class Port extends Component {

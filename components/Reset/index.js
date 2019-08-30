@@ -4,7 +4,6 @@ import { StyleSheet, StatusBar } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Header, Left, Body, Right, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
-import { uriBase } from '../../../uri';
 import axios from 'axios';
 
 
@@ -21,7 +20,6 @@ class Reset extends Component {
       password: null,
       verifyPassword: null
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -30,7 +28,6 @@ class Reset extends Component {
       loading: false,
       password: null,
       verifyPassword: null
-
     })
   }
 
@@ -40,8 +37,6 @@ class Reset extends Component {
     axios.post(uriBase + 'auth/reset_password', {
       password: this.state.password,
       verifyPassword: this.state.verifyPassword,
-
-
     })
       .then((response) => {
         this.setState({ loading: false, email: null });
@@ -53,10 +48,7 @@ class Reset extends Component {
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-
-
         } else {
-
           let message = response.data.message;
           Alert.alert(message);
           this.props.navigation.navigate('Home')
@@ -146,4 +138,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withNavigation(Forgot)
+export default withNavigation(Reset)

@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { StyleSheet, YellowBox, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-// import Port from "./port";
 
 //Components
 import Home from './components/Home';

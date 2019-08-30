@@ -10,6 +10,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+//#import "React/RCTLinkingManager.h"
 
 @implementation AppDelegate
 
@@ -38,5 +39,6 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)urlsourceApplication:(NSString *)sourceApplication annotation:(id)annotation{return [RCTLinkingManager application:application openURL:urlsourceApplication:sourceApplication annotation:annotation];}
 
 @end
