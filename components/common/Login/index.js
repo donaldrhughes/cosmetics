@@ -23,8 +23,6 @@ class Login extends Component {
       email: null,
       password: null,
       loading: true
-
-
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -62,7 +60,7 @@ class Login extends Component {
           const token = response.data.token;
           // console.error(token)
           AsyncStorage.setItem('@token', 'token');
-          this.props.navigation.navigate('Splash');
+          this.props.navigation.navigate('Stripe');
         } else {
 
           let message = response.data.message;

@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, NativeModules } from 'react-native';
+import { View, StyleSheet, Platform, NativeModules } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Container, Header, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
+// import { Container, Header, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
 import stripe from 'tipsi-stripe';
+import checkArgs from './utils/checkArgs'
 // import { withNavigation } from 'react-navigation';
 // import axios from 'axios';
 
 //Components
 import Loading from '../common/Loading';
+const { StripeModule } = NativeModules
 
+class Stripe extends Component {
+    stripeInitialized = false
 
+  setOptions = (options = {}) => {
+    checkArgs(
+      types.setOptionsOptionsPropTypes,
+      options, 'options', 'Stripe.setOptions'
+    )
 
+    this.stripeInitialized = true
 
-class NewCardPage extends Component {
+    return StripeModule.init(options, errorCodes)
+  }
     constructor(props) {
         super(props);
         this.state = {
@@ -28,9 +39,7 @@ class NewCardPage extends Component {
 
    
     componentDidMount() {
-        stripe.init({
-            publishableKey: "pk_test_ajvqfwv9ZGSQLefYRxu4grv800W7Req0wb",
-          });
+    
         this.setState({
             loading: false,
             user: null,
@@ -40,18 +49,18 @@ class NewCardPage extends Component {
             id: null
 
         })
-        const options = {
-            smsAutofillDisabled: true,
-            requiredBillingAddressFields: 'zip', // or 'full'
-            theme
-          };
-          stripe.paymentRequestWithCardForm(options)
-      .then(response => {
-        // Get the token from the response, and send to your server
-      })
-      .catch(error => {
-        // Handle error
-      });
+    //     const options = {
+    //         smsAutofillDisabled: true,
+    //         requiredBillingAddressFields: 'zip', // or 'full'
+    //         theme
+    //       };
+    //       stripe.paymentRequestWithCardForm(options)
+    //   .then(response => {
+    //     // Get the token from the response, and send to your server
+    //   })
+    //   .catch(error => {
+    //     // Handle error
+    //   });
     }
 
     handleSubmit = (event) => {
@@ -96,34 +105,16 @@ class NewCardPage extends Component {
 
     render() {
         if (this.state.loading) return <Loading />;
+        // const APIKEY = "pk_test_ajvqfwv9ZGSQLefYRxu4grv800W7Req0wb";
+        // stripe.setOptions({
+        //     publishableKey: APIKEY
+        //     // ,
+        //     // merchantId: 'MERCHANT_ID', // Optional
+        //     // androidPayMode: 'test', // Android only
+        //   })
         return (
             <View />
-            // <Container>
-            //     <Card>
-            //         <Form>
-            //             <CardItem><Text> Stripe </Text></CardItem>
-            //             <Item rounded style={styles.input}>
-            //                 <Input
-            //                     type="email"
-            //                     className="loginText"
-            //                     placeholder="Email"
-            //                     value={this.state.email}
-            //                     onChangeText={(text) => (this.state.email = text)} />
-            //             </Item>
-            //             <Item rounded style={styles.input}>
-            //                 <Input
-            //                     type="text"
-            //                     className="userText"
-            //                     placeholder="Username"
-            //                     value={this.state.username}
-            //                     onChangeText={(text2) => (this.state.username = text2)} />
-            //             </Item>
-            //             <CardItem><Input><Text>CardItem Input</Text></Input></CardItem>
-            //             <CardItem><Button><Text>Submit</Text></Button></CardItem>
-            //         </Form>
-            //     </Card>
-
-            // </Container>
+        
         );
     }
 }
@@ -158,3 +149,5 @@ const styles = StyleSheet.create({
         marginLeft: 60
     }
 });
+
+export default new Stripe()

@@ -4,8 +4,9 @@ import { View, StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Button, Header, Left, Body, Right, Content, Footer, Text, Card, Form, Item, Input, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
+
 //Components
-import Stripe from '../Stripe';
+// import Stripe from '../Stripe';
 import Loading from '../common/Loading';
 
 class Splash extends Component {

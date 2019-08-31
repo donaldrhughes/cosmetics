@@ -11,7 +11,7 @@ import Home from './components/Home';
 import Splash from './components/Splash';
 import Registration from './components/Registration';
 import Forgot from './components/Forgot';
-import Stripe from './components/Stripe';
+import Stripe from './components/Stripe/Root';
 // import Reset from './components/Reset';
 
 
@@ -30,9 +30,9 @@ class HomeScreen extends Component {
 class SplashScreen extends Component {
   static navigationOptions = {
     title: 'Splash',
-    
     headerRight: <View />
   }
+
   render() {
     
     return (
@@ -45,11 +45,9 @@ class SplashScreen extends Component {
 class RegisterScreen extends Component {
   static navigationOptions = {
     title: 'Registration',
-    
     headerRight: <View />
   }
   render() {
-    
     return (
       <Registration />
     );
@@ -60,11 +58,9 @@ class RegisterScreen extends Component {
 class ForgotScreen extends Component {
   static navigationOptions = {
     title: 'Forgot Password',
-    
     headerRight: <View />
   }
   render() {
-    
     return (
       <Forgot />
     );
@@ -75,11 +71,9 @@ class ForgotScreen extends Component {
 class ResetScreen extends Component {
   static navigationOptions = {
     title: 'Reset Password',
-    
     headerRight: <View />
   }
   render() {
-    
     return (
       // <Reset />
       <div></div>
@@ -91,7 +85,6 @@ class ResetScreen extends Component {
 class StripeScreen extends Component {
   static navigationOptions = {
     title: 'Stripe',
-    
     headerRight: <View />
   }
   render() {
