@@ -12,7 +12,7 @@ import axios from 'axios';
 
 //Components
 import Loading from '../Loading';
-
+import Styles from '../Styles'
 
 //Login Class
 //=======================
@@ -79,13 +79,11 @@ class Login extends Component {
     if (this.state.loading) return <Loading />;
 
     return (
-      <Container>
-        <Header><Text>James Albert Cosmetics</Text></Header>
         <Card>
-          <CardItem style={styles.card}>
+          <CardItem style={Styles.card}>
             <Content>
               <Form>
-                <Item rounded style={styles.input}>
+                <Item rounded style={Styles.input}>
                   <Input
                     type="email"
                     className="loginText"
@@ -94,7 +92,7 @@ class Login extends Component {
                     autoCapitalize = 'none'
                     onChangeText={(text) => (this.state.email = text)} />
                 </Item>
-                <Item rounded last style={styles.input}>
+                <Item rounded last style={Styles.input}>
                   <Input
                     type="password"
                     className="loginText"
@@ -104,20 +102,19 @@ class Login extends Component {
                     value={this.state.password}
                     onChangeText={(text2) => (this.state.password = text2)} />
                 </Item>
-                <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
-                  <Text style={styles.btnText}>Submit</Text>
+                <Button rounded style={Styles.btn} onPress={this.handleSubmit}>
+                  <Text style={Styles.btnText}>Submit</Text>
                 </Button>
               </Form>
-              <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Registration'))}>
-                <Text style={styles.btnText}>Sign Up</Text>
+              <Button rounded style={Styles.btn} onPress={() => (this.props.navigation.navigate('Registration'))}>
+                <Text style={Styles.btnText}>Sign Up</Text>
               </Button>
-              <Button rounded dark style={styles.btn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
-                <Text style={styles.btnForgotText}>Forgot Password</Text>
+              <Button rounded style={Styles.btn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
+                <Text style={Styles.btnForgotText}>Forgot Password</Text>
               </Button>
             </Content>
           </CardItem>
         </Card>
-      </Container>
     )
   }
 }

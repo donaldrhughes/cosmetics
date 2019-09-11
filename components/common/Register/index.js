@@ -20,7 +20,7 @@ class Register extends Component {
       email: null,
       username: null,
       password: null,
-      verifyPassword: null,
+      passwordVerify: null,
       dob: null,
       loading: true
 
@@ -35,7 +35,7 @@ componentDidMount(){
     email: null,
     username: null,
     password: null,
-    verifyPassword: null,
+    passwordVerify: null,
     dob: null
   })
 }
@@ -47,7 +47,7 @@ componentDidMount(){
     email: this.state.email,
       username: this.state.username,
       password: this.state.password,
-      verifyPassword: this.state.verifyPassword,
+      passwordVerify: this.state.passwordVerify,
       dob: this.state.dob
 
     })
@@ -126,7 +126,7 @@ componentDidMount(){
                     secureTextEntry={true}
                     value={this.state.verifyPassword}
                     autoCapitalize = 'none'
-                    onChangeText={(text3) => (this.state.verifyPassword = text3)} />
+                    onChangeText={(text3) => (this.state.passwordVerify = text3)} />
                 </Item>
                 <Item rounded style={styles.input}>
                   <Input
