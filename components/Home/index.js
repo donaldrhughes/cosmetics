@@ -7,7 +7,7 @@ import { Container, Header, Body, Content, Footer, Text } from 'native-base';
 
 //Components
 import Login from '../common/Login';
-
+import Styles from '../common/Styles';
 
 export default class Home extends Component {
   constructor(props) {
@@ -20,32 +20,31 @@ export default class Home extends Component {
 
     return (
       <Container>
-        <StatusBar barStyle="dark-content" />
-        <Header>
-          <Body>
-            <Image source={require('../../images/JA-Logo-sml.png')} />
+        <StatusBar barStyle="default" />
+        <Header style={Styles.dark}>
+          <Body style={Styles.dark}>
+            <Image style={Styles.imgLogo} source={require('../../images/JA-Logo-sml-light.png')} />
+
           </Body>
         </Header>
+        <Header style={Styles.dark}>
+        <Body style={Styles.dark}>
+        <Content>
+        <Text style={Styles.header}>Login</Text>
+        </Content>
+        </Body>
+        </Header>
         <Login />
+        {/* <Text style={Styles.dark}>Test</Text> */}
         <Footer>
           <Content>
-            <Text style={styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
+            <Text style={Styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
                     </Text>
           </Content>
-          <Content><Text style={styles.footer}>Phone: 1.714.423.5208 - Call Us Today!</Text></Content>
+          <Content><Text style={Styles.footer}>Phone: 1.714.423.5208 - Call Us Today!</Text></Content>
         </Footer>
       </Container>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'center',
-  }
-});
