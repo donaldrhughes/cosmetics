@@ -91,6 +91,7 @@ class Login extends Component {
                     className="loginText"
                     placeholder="Username"
                     value={this.state.email}
+                    autoCapitalize = 'none'
                     onChangeText={(text) => (this.state.email = text)} />
                 </Item>
                 <Item rounded last style={styles.input}>
@@ -98,6 +99,7 @@ class Login extends Component {
                     type="password"
                     className="loginText"
                     placeholder="Password"
+                    autoCapitalize = 'none'
                     secureTextEntry={true}
                     value={this.state.password}
                     onChangeText={(text2) => (this.state.password = text2)} />

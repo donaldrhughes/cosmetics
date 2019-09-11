@@ -96,6 +96,7 @@ componentDidMount(){
                     className="loginText"
                     placeholder="Email"
                     value={this.state.email}
+                    autoCapitalize = 'none'
                     onChangeText={(text) => (this.state.email = text)} />
                 </Item>
                 <Item rounded style={styles.input}>
@@ -104,6 +105,7 @@ componentDidMount(){
                     className="userText"
                     placeholder="Username"
                     value={this.state.username}
+                    autoCapitalize = 'none'
                     onChangeText={(text5) => (this.state.username = text5)} />
                 </Item>
                 <Item rounded last style={styles.input}>
@@ -112,6 +114,7 @@ componentDidMount(){
                     className="passwordText"
                     placeholder="Password"
                     secureTextEntry={true}
+                    autoCapitalize = 'none'
                     value={this.state.password}
                     onChangeText={(text2) => (this.state.password = text2)} />
                 </Item>
@@ -122,6 +125,7 @@ componentDidMount(){
                     placeholder="Verify Password"
                     secureTextEntry={true}
                     value={this.state.verifyPassword}
+                    autoCapitalize = 'none'
                     onChangeText={(text3) => (this.state.verifyPassword = text3)} />
                 </Item>
                 <Item rounded style={styles.input}>
@@ -130,6 +134,7 @@ componentDidMount(){
                     className="Text"
                     placeholder="Date of Birth (MM-DD) - Year is optional"
                     value={this.state.dob}
+                    autoCapitalize = 'none'
                     onChangeText={(text4) => (this.state.dob = text4)} />
                 </Item>
                 <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
