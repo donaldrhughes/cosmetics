@@ -12,35 +12,30 @@ import Splash from './components/Splash';
 import Registration from './components/Registration';
 import Forgot from './components/Forgot';
 import Stripe from './components/Stripe/Root';
-// import Reset from './components/Reset';
+import Products from './components/Products';
 
 
 class HomeScreen extends Component {
   static navigationOptions = {
     header: null
   }
-
   render() {
     return (
       <Home></Home>
     )}
 }
 
-
 class SplashScreen extends Component {
   static navigationOptions = {
     title: 'Splash',
     headerRight: <View />
   }
-
   render() {
-    
     return (
       <Splash />
     );
   }
 }
-
 
 class RegisterScreen extends Component {
   static navigationOptions = {
@@ -54,7 +49,6 @@ class RegisterScreen extends Component {
   }
 }
 
-
 class ForgotScreen extends Component {
   static navigationOptions = {
     title: 'Forgot Password',
@@ -66,7 +60,6 @@ class ForgotScreen extends Component {
     );
   }
 }
-
 
 class ResetScreen extends Component {
   static navigationOptions = {
@@ -81,7 +74,6 @@ class ResetScreen extends Component {
   }
 }
 
-
 class StripeScreen extends Component {
   static navigationOptions = {
     title: 'Stripe',
@@ -94,6 +86,15 @@ class StripeScreen extends Component {
   }
 }
 
+class ProductScreen extends Component {
+  static navigationOptions = {
+    header: null
+  }
+  render() {
+    return (
+      <Products></Products>
+    )}
+}
 
 //Styles
 const styles = StyleSheet.create({
@@ -120,11 +121,12 @@ const RootStack = createStackNavigator(
     Forgot: ForgotScreen,
     Reset: ResetScreen,
     Stripe: StripeScreen,
+    Products: ProductScreen
   },
   {
     initialRouteName: 'Home',
     defaultNavigationOptions:{
-      backgroundColor: Colors.blue
+    backgroundColor: Colors.blue
     }
   }
   

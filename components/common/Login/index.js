@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
+import { Form, Item, Input, Content, Button, Text, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import { uriBase } from '../../../uri';
@@ -43,7 +43,6 @@ class Login extends Component {
     axios.post(uriBase + 'auth/login', {
       email: this.state.email,
       password: this.state.password
-
     })
       .then((response) => {
         this.setState({ loading: false, email: null, password: null });
@@ -55,22 +54,18 @@ class Login extends Component {
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-
         } else if (response.data.token) {
           const token = response.data.token;
           // console.error(token)
           AsyncStorage.setItem('@token', 'token');
-          this.props.navigation.navigate('Stripe');
+          this.props.navigation.navigate('Products');
         } else {
-
           let message = response.data.message;
           Alert.alert(message);
         }
-
       })
       .catch(function (error) {
         console.log(error);
-
       })
   }
 
