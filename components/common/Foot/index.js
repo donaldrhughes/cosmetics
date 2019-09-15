@@ -11,7 +11,6 @@ export default class Foot extends Component {
 
     render() {
         return (
-
 <View style={Styles.foot}>
           <Content>
             <Text style={Styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
@@ -21,7 +20,6 @@ export default class Foot extends Component {
           <Text style={Styles.footer}>Phone: 1.714.423.5208 - Call Us Today!</Text>
           </Content>
           </View>
-
 
         );
     }

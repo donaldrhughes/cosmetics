@@ -22,7 +22,7 @@ componentDidMount(){
         this.headText = this.props.headText;
         return (
         <Header style={Styles.dark}>
-        <Body >
+        <Body style={Styles.mid}>
             <Text style={Styles.header}>{this.state.headText}</Text>
         </Body>
         </Header>

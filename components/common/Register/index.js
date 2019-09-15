@@ -3,13 +3,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Form, Item, Input, Container, Header, Content, Button, Text, Card, CardItem } from 'native-base';
+import { Form, Item, Input, Container, Content, Button, Text, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import { uriBase } from '../../../uri';
 import axios from 'axios';
 
 //Components
 import Loading from '../Loading';
+import Styles from '../Styles';
 
 //Register Class
 //=======================
@@ -23,7 +24,6 @@ class Register extends Component {
       passwordVerify: null,
       dob: null,
       loading: true
-
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,7 +49,6 @@ componentDidMount(){
       password: this.state.password,
       passwordVerify: this.state.passwordVerify,
       dob: this.state.dob
-
     })
       .then((response) => {
         this.setState({loading: false, email: null, password: null, verifyPassword: null, dob: null, username: null });
@@ -61,22 +60,14 @@ componentDidMount(){
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-          
-        // } else if (response.data.token) {
-        //   let message = 'User has been created';
-        //   Alert.alert(message);
-        //   this.props.navigation.navigate('Home')
         } else {
-          
           let message = response.data.message;
           Alert.alert(message);
           this.props.navigation.navigate('Home')
         }
-
       })
       .catch(function (error) {
         console.log(error);
-
       })
   }
 
@@ -85,12 +76,12 @@ componentDidMount(){
 
     return (
       <Container>
-        <Header><Text>Sign Up Here</Text></Header>
+        {/* <Header><Text>Sign Up Here</Text></Header> */}
         <Card>
-          <CardItem style={styles.card}>
+          <CardItem style={Styles.card}>
             <Content>
               <Form>
-                <Item rounded style={styles.input}>
+                <Item rounded style={Styles.input}>
                   <Input
                     type="email"
                     className="loginText"
@@ -99,7 +90,7 @@ componentDidMount(){
                     autoCapitalize = 'none'
                     onChangeText={(text) => (this.state.email = text)} />
                 </Item>
-                <Item rounded style={styles.input}>
+                <Item rounded style={Styles.input}>
                   <Input
                     type="text"
                     className="userText"
@@ -108,7 +99,7 @@ componentDidMount(){
                     autoCapitalize = 'none'
                     onChangeText={(text5) => (this.state.username = text5)} />
                 </Item>
-                <Item rounded last style={styles.input}>
+                <Item rounded last style={Styles.input}>
                   <Input
                     type="password"
                     className="passwordText"
@@ -118,7 +109,7 @@ componentDidMount(){
                     value={this.state.password}
                     onChangeText={(text2) => (this.state.password = text2)} />
                 </Item>
-                <Item rounded last style={styles.input}>
+                <Item rounded last style={Styles.input}>
                   <Input
                     type="password"
                     className="passwordText"
@@ -128,7 +119,7 @@ componentDidMount(){
                     autoCapitalize = 'none'
                     onChangeText={(text3) => (this.state.passwordVerify = text3)} />
                 </Item>
-                <Item rounded style={styles.input}>
+                <Item rounded style={Styles.input}>
                   <Input
                     type="text"
                     className="Text"
@@ -137,8 +128,8 @@ componentDidMount(){
                     autoCapitalize = 'none'
                     onChangeText={(text4) => (this.state.dob = text4)} />
                 </Item>
-                <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
-                  <Text style={styles.btnText}>Submit</Text>
+                <Button rounded dark style={Styles.regBtn} onPress={this.handleSubmit}>
+                  <Text style={Styles.btnText}>Submit</Text>
                 </Button>
               </Form>
             </Content>

@@ -1,17 +1,17 @@
 //Home Screen
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
-import { Text, Container } from 'native-base';
+import { Container } from 'native-base';
 
 
 //Components
 import Login from '../common/Login';
-import Styles from '../common/Styles';
 import Loading from '../common/Loading';
 import Head from '../common/Head';
 import Logo from '../common/Logo';
 import Foot from '../common/Foot';
 import BodyImg from '../common/BodyImg';
+// import Styles from '../common/Styles';
 
 
 export default class Home extends Component {
@@ -39,14 +39,10 @@ export default class Home extends Component {
         <StatusBar barStyle="default" />
         <Logo></Logo>
         <Head headText='Login'>
-        {/* <Text style={Styles.header}>{headText}</Text> */}
         </Head>
-        
         <Login />
-        <View style={{flex: 1}}>
         <BodyImg />
-        <Foot />
-          </View>
+        {/* <Foot /> */}
       </Container>
     );
   }

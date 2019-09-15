@@ -2,7 +2,6 @@
 //========================
 import React, { Component } from 'react';
 import { Alert } from 'react-native';
-// import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Form, Item, Input, Content, Button, Text, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -113,34 +112,5 @@ class Login extends Component {
     )
   }
 }
-
-// const styles = StyleSheet.create({
-
-//   card: {
-//     flex: 0,
-//     backgroundColor: Colors.dark,
-//     color: Colors.light
-//   },
-//   input: {
-//     margin: 6,
-//     backgroundColor: Colors.light
-//   },
-//   btn: {
-//     marginLeft: 64,
-//     marginRight: 64,
-//     marginTop: 16
-//   },
-//   btnText: {
-//     marginLeft: 60
-//   },
-//   btnForgotText: {
-//     marginLeft: 35
-//   },
-//   loginText: {
-//     color: Colors.dark
-//   }
-
-// });
-
 
 export default withNavigation(Login)

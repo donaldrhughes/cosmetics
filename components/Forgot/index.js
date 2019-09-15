@@ -10,7 +10,9 @@ import axios from 'axios';
 
 //Components
 import Loading from '../common/Loading/';
-
+import Foot from '../common/Foot';
+import Head from '../common/Head';
+import Styles from '../common/Styles';
 
 class Forgot extends Component {
   constructor(props) {
@@ -62,33 +64,27 @@ componentDidMount(){
     return (
       <Container>
         <StatusBar barStyle="dark-content" />
-        <Header><Text>Forgot Password</Text></Header>
+    <Head headText='Forget Your Password?'></Head>
         <Card>
-          <CardItem style={styles.card}>
+          <CardItem style={Styles.card}>
             <Content>
               <Form>
-                <Item rounded style={styles.input}>
+                <Item rounded style={Styles.input}>
                   <Input
                     type="email"
                     className="loginText"
-                    placeholder="Enter Your Email Address"
+                    placeholder="Enter Your Email"
                     value={this.state.email}
                     onChangeText={(text) => (this.state.email = text)} />
                 </Item>
-                <Button rounded dark style={styles.btn} onPress={this.handleSubmit}>
-                  <Text style={styles.btnText}>Submit</Text>
+                <Button rounded dark style={Styles.forgotBtn} onPress={this.handleSubmit}>
+                  <Text style={Styles.btnText}>Submit</Text>
                 </Button>
               </Form>
             </Content>
           </CardItem>
         </Card>
-        <Footer>
-          <Content>
-            <Text style={styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
-                    </Text>
-          </Content>
-          <Content><Text style={styles.footer}>Phone: 1.714.423.5208 - Call Us Today!</Text></Content>
-        </Footer>
+   <Foot />
       </Container>
     );
   }
