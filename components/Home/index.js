@@ -19,21 +19,24 @@ export default class Home extends Component {
     super(props);
     this.state = {
       loading: true,
-      headText: null
+      headText: null,
+      bkImg: null
     };
   }
 
   componentDidMount(){
     this.setState({
       loading: false,
-      headText: 'Login'
+      headText: 'Login',
+      bkImg: 'new-bk2.png'
     })
   }
 
   render() {
     if (this.state.loading) return <Loading />;
     const headText = this.state.headText;
-    
+    const bkImg = this.state.bkImg;
+
     return (
       <Container>
         <StatusBar barStyle="default" />
@@ -41,7 +44,7 @@ export default class Home extends Component {
         <Head headText='Login'>
         </Head>
         <Login />
-        <BodyImg />
+        <BodyImg bkImg='new-bk2.png'/>
         {/* <Foot /> */}
       </Container>
     );
