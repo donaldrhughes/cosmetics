@@ -1,6 +1,4 @@
-import React, {
-    StyleSheet
-} from 'react-native'
+import React, { StyleSheet } from 'react-native'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Styles = StyleSheet.create({
@@ -11,25 +9,23 @@ const Styles = StyleSheet.create({
       
     },
     footer: {
-        color: Colors.dark,
-        fontSize: 12,
+        color: 'black',
+        fontSize: 16,
         fontWeight: '600',
         padding: 4,
-        paddingRight: 12,
         textAlign: 'center',
+        marginBottom: '2%'
     },
     header: {
-        color: Colors.light,
-        backgroundColor: 'grey',
+        color: '#ddd',
+        backgroundColor: 'black',
         fontSize: 24,
         fontWeight: '500',
         fontFamily: 'Arial',
-        // padding: 4,
-        // paddingRight: 12,
         textAlign: 'center'
     },
     dark: {
-        backgroundColor: 'grey',
+        backgroundColor: 'black',
        
         color: 'orange',
         fontSize: 32
@@ -38,7 +34,6 @@ const Styles = StyleSheet.create({
         textAlign: 'center'
     },
     imgLogo: {
-        // width: '100%',
         margin: 0
     },
     card: {
@@ -48,7 +43,7 @@ const Styles = StyleSheet.create({
       },
       input: {
         margin: 6,
-        backgroundColor: Colors.light
+        backgroundColor: 'white'
       },
       btn: {
         marginLeft: 64,
@@ -70,9 +65,27 @@ const Styles = StyleSheet.create({
         color: Colors.dark
       },
       regBtn: {
+        marginLeft: 64,
+        marginRight: 64,
+        marginTop: 16,
         backgroundColor: 'rgb(91, 8, 91)'
+      },
+      forgotBtn: {
+        marginLeft: 64,
+        marginRight: 64,
+        marginTop: 16,
+        backgroundColor: 'black'
+      },
+      card: {
+        backgroundColor: '#ddd'
+      },
+      foot: {
+        position: 'absolute', 
+        left: 0, 
+        right: 0, 
+        bottom: 0
       }
-    
+
 });
 
 export default Styles;

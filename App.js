@@ -108,6 +108,7 @@ YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
   'Warning: componentWillReceiveProps is deprecated',
   'Module RCTImageLoader requires',
+  'Module Counter requires main'
 ]);
 
 //Root Stack Routes

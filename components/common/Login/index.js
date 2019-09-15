@@ -106,10 +106,10 @@ class Login extends Component {
                   <Text style={Styles.btnText}>Submit</Text>
                 </Button>
               </Form>
-              <Button rounded style={Styles.btn} onPress={() => (this.props.navigation.navigate('Registration'))}>
+              <Button rounded style={Styles.regBtn} onPress={() => (this.props.navigation.navigate('Registration'))}>
                 <Text style={Styles.btnText}>Sign Up</Text>
               </Button>
-              <Button rounded style={Styles.btn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
+              <Button rounded style={Styles.forgotBtn} onPress={() => (this.props.navigation.navigate('Forgot'))}>
                 <Text style={Styles.btnForgotText}>Forgot Password</Text>
               </Button>
             </Content>

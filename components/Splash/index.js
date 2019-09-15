@@ -1,20 +1,25 @@
 //Splash Screen
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Button, Header, Left, Body, Right, Content, Footer, Text, Card, Form, Item, Input, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 
 //Components
-// import Stripe from '../Stripe';
 import Loading from '../common/Loading';
 
 class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true
     };
   }
+componentDidMount(){
+  this.setState({
+    loading: false
+  })
+}
 
   render() {
     if (this.state.loading) return <Loading />;
