@@ -10,7 +10,8 @@ import axios from 'axios';
 
 //Components
 import Loading from '../common/Loading/';
-
+import Foot from '../common/Foot';
+import Head from '../common/Head';
 
 class Forgot extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ componentDidMount(){
     return (
       <Container>
         <StatusBar barStyle="dark-content" />
-        <Header><Text>Forgot Password</Text></Header>
+    <Head headText='Forgot Password'></Head>
         <Card>
           <CardItem style={styles.card}>
             <Content>
@@ -82,13 +83,7 @@ componentDidMount(){
             </Content>
           </CardItem>
         </Card>
-        <Footer>
-          <Content>
-            <Text style={styles.footer}>269 S Beverly Drive Suite 222, Beverly Hills, California 90212
-                    </Text>
-          </Content>
-          <Content><Text style={styles.footer}>Phone: 1.714.423.5208 - Call Us Today!</Text></Content>
-        </Footer>
+   <Foot />
       </Container>
     );
   }
