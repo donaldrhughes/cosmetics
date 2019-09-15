@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { Card, Title, Icon, Button, Container, Left, Right, Header, Content, Body, Text } from 'native-base';
+import { Header, Body} from 'native-base';
 
 
 //Components
@@ -12,7 +12,7 @@ export default class Head extends Component {
     render() {
         return (
 <Header style={Styles.dark}>
-  <Body >
+  <Body style={Styles.dark}>
           <Image style={Styles.imgLogo} source={require('../../../images/JA-Logo-sml-light.png')} />
       </Body>
       </Header>

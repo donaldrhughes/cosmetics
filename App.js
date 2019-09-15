@@ -2,7 +2,7 @@
 //===========================================
 //Dependencies
 import React, { Component } from 'react';
-import { StyleSheet, YellowBox, View } from 'react-native';
+import { YellowBox, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
@@ -88,20 +88,14 @@ class StripeScreen extends Component {
 
 class ProductScreen extends Component {
   static navigationOptions = {
-    header: null
+    title: 'Products',
+    headerRight: <View />
   }
   render() {
     return (
-      <Products></Products>
+      <Products />
     )}
 }
-
-//Styles
-const styles = StyleSheet.create({
-  body: {
-    backgroundColor: Colors.white,
-  }
-});
 
 //Config
 //Remove YellowBox warnings from Front-End
@@ -129,7 +123,6 @@ const RootStack = createStackNavigator(
     backgroundColor: Colors.blue
     }
   }
-  
 );
 
 //Main App Container 

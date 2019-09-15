@@ -1,7 +1,7 @@
 //Home Screen
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
-import { Container } from 'native-base';
+import { Text, Container } from 'native-base';
 
 
 //Components
@@ -18,23 +18,30 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      headText: null
     };
   }
 
   componentDidMount(){
     this.setState({
-      loading: false
+      loading: false,
+      headText: 'Login'
     })
   }
 
   render() {
     if (this.state.loading) return <Loading />;
+    const headText = this.state.headText;
+    
     return (
       <Container>
         <StatusBar barStyle="default" />
         <Logo></Logo>
-        <Head></Head>
+        <Head headText='Login'>
+        {/* <Text style={Styles.header}>{headText}</Text> */}
+        </Head>
+        
         <Login />
         <View style={{flex: 1}}>
         <BodyImg />

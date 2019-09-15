@@ -27,7 +27,7 @@ const Styles = StyleSheet.create({
     },
     dark: {
         backgroundColor: 'black',
-        color: 'orange',
+        color: 'white',
         fontSize: 32
     },
     welcome: {
