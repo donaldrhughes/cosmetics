@@ -1,7 +1,6 @@
 //Products Screen
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
-// import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Container, Header, Content, Footer, Text, Form, Item, Input, Button, Card, CardItem } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import { uriBase } from '../../uri';
@@ -12,6 +11,7 @@ import axios from 'axios';
 import Loading from '../common/Loading/';
 import Styles from '../common/Styles/';
 import Stripe from '../Stripe/Root'
+import Head from '../common/Head';
 
 class Products extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ componentDidMount(){
     return (
       <Container>
         <StatusBar barStyle="dark-content" />
-        <Header><Text>Products</Text></Header>
+        <Head></Head>
         <Card>
           <CardItem style={Styles.card}>
             <Content>

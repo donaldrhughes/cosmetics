@@ -23,10 +23,10 @@ const Styles = StyleSheet.create({
         fontWeight: '500',
         fontFamily: 'Arial',
         textAlign: 'center'
+       
     },
     dark: {
         backgroundColor: 'black',
-       
         color: 'orange',
         fontSize: 32
     },
@@ -34,7 +34,7 @@ const Styles = StyleSheet.create({
         textAlign: 'center'
     },
     imgLogo: {
-        margin: 0
+        // margin: 0
     },
     card: {
         flex: 0,
