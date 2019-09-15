@@ -24,7 +24,6 @@ class Register extends Component {
       passwordVerify: null,
       dob: null,
       loading: true
-
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,7 +49,6 @@ componentDidMount(){
       password: this.state.password,
       passwordVerify: this.state.passwordVerify,
       dob: this.state.dob
-
     })
       .then((response) => {
         this.setState({loading: false, email: null, password: null, verifyPassword: null, dob: null, username: null });
@@ -62,22 +60,14 @@ componentDidMount(){
             errorsList += '<li>' + errors[i].msg + '</li>';
           }
           Alert.alert(errorsList)
-          
-        // } else if (response.data.token) {
-        //   let message = 'User has been created';
-        //   Alert.alert(message);
-        //   this.props.navigation.navigate('Home')
         } else {
-          
           let message = response.data.message;
           Alert.alert(message);
           this.props.navigation.navigate('Home')
         }
-
       })
       .catch(function (error) {
         console.log(error);
-
       })
   }
 
@@ -138,7 +128,7 @@ componentDidMount(){
                     autoCapitalize = 'none'
                     onChangeText={(text4) => (this.state.dob = text4)} />
                 </Item>
-                <Button rounded dark style={Styles.btn} onPress={this.handleSubmit}>
+                <Button rounded dark style={Styles.regBtn} onPress={this.handleSubmit}>
                   <Text style={Styles.btnText}>Submit</Text>
                 </Button>
               </Form>
