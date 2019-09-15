@@ -23,18 +23,18 @@ const Styles = StyleSheet.create({
         fontWeight: '500',
         fontFamily: 'Arial',
         textAlign: 'center'
+       
     },
     dark: {
         backgroundColor: 'black',
-       
-        color: 'orange',
+        color: 'white',
         fontSize: 32
     },
     welcome: {
         textAlign: 'center'
     },
     imgLogo: {
-        margin: 0
+        // margin: 0
     },
     card: {
         flex: 0,

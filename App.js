@@ -2,7 +2,7 @@
 //===========================================
 //Dependencies
 import React, { Component } from 'react';
-import { StyleSheet, YellowBox, View } from 'react-native';
+import { YellowBox, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
@@ -12,35 +12,30 @@ import Splash from './components/Splash';
 import Registration from './components/Registration';
 import Forgot from './components/Forgot';
 import Stripe from './components/Stripe/Root';
-// import Reset from './components/Reset';
+import Products from './components/Products';
 
 
 class HomeScreen extends Component {
   static navigationOptions = {
     header: null
   }
-
   render() {
     return (
       <Home></Home>
     )}
 }
 
-
 class SplashScreen extends Component {
   static navigationOptions = {
     title: 'Splash',
     headerRight: <View />
   }
-
   render() {
-    
     return (
       <Splash />
     );
   }
 }
-
 
 class RegisterScreen extends Component {
   static navigationOptions = {
@@ -54,7 +49,6 @@ class RegisterScreen extends Component {
   }
 }
 
-
 class ForgotScreen extends Component {
   static navigationOptions = {
     title: 'Forgot Password',
@@ -66,7 +60,6 @@ class ForgotScreen extends Component {
     );
   }
 }
-
 
 class ResetScreen extends Component {
   static navigationOptions = {
@@ -81,7 +74,6 @@ class ResetScreen extends Component {
   }
 }
 
-
 class StripeScreen extends Component {
   static navigationOptions = {
     title: 'Stripe',
@@ -94,13 +86,16 @@ class StripeScreen extends Component {
   }
 }
 
-
-//Styles
-const styles = StyleSheet.create({
-  body: {
-    backgroundColor: Colors.white,
+class ProductScreen extends Component {
+  static navigationOptions = {
+    title: 'Products',
+    headerRight: <View />
   }
-});
+  render() {
+    return (
+      <Products />
+    )}
+}
 
 //Config
 //Remove YellowBox warnings from Front-End
@@ -120,14 +115,14 @@ const RootStack = createStackNavigator(
     Forgot: ForgotScreen,
     Reset: ResetScreen,
     Stripe: StripeScreen,
+    Products: ProductScreen
   },
   {
     initialRouteName: 'Home',
     defaultNavigationOptions:{
-      backgroundColor: Colors.blue
+    backgroundColor: Colors.blue
     }
   }
-  
 );
 
 //Main App Container 
