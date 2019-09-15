@@ -13,7 +13,7 @@ export default class Head extends Component {
         return (
 <Header style={Styles.dark}>
   <Body style={Styles.dark}>
-          <Image style={Styles.imgLogo} source={require('../../../images/JA-Logo-sml-light.png')} />
+          <Image source={require('../../../images/JA-Logo-sml-light.png')} />
       </Body>
       </Header>
         );

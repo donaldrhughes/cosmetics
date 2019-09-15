@@ -14,14 +14,14 @@ const Styles = StyleSheet.create({
         fontWeight: '600',
         padding: 4,
         textAlign: 'center',
-        marginBottom: '2%'
+        marginBottom: '10%'
     },
     header: {
         color: '#ddd',
         backgroundColor: 'black',
         fontSize: 24,
         fontWeight: '500',
-        fontFamily: 'Arial',
+        fontFamily: 'Arial Rounded MT Bold',
         textAlign: 'center'
        
     },
@@ -33,9 +33,9 @@ const Styles = StyleSheet.create({
     welcome: {
         textAlign: 'center'
     },
-    imgLogo: {
-        // margin: 0
-    },
+    // imgLogo: {
+    //     margin: 0
+    // },
     card: {
         flex: 0,
         backgroundColor: Colors.black,
@@ -84,7 +84,12 @@ const Styles = StyleSheet.create({
         left: 0, 
         right: 0, 
         bottom: 0
+      },
+      mid: {
+        // textAlignVertical: 'auto'
       }
+
+
 
 });
 
